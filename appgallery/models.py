@@ -12,7 +12,7 @@ class Image(models.Model):
     def __str__ (self):
       return self.ima_name
 
-    def save_location(self):
+    def save_Image(self):
       self.save()
 
 
