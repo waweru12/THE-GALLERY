@@ -19,3 +19,20 @@ class LocationTestClass(TestCase):
     def test_save_method(self):
         self.nairobi.save_location()
 
+
+class CategoryTestClass(TestCase):
+    #Set up method
+
+    def setUp(self):
+        self.food = Category(category_name = 'Food')
+
+    #Testing insatnce 
+
+    def test_instance (self):
+        self.assertTrue(isinstance(self.food,Category))
+
+
+    # Testing save method 
+    def test_save_method(self):
+        self.food.save_category()
+
