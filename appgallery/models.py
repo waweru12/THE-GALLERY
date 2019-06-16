@@ -7,8 +7,8 @@ class Image(models.Model):
     image = models.ImageField(upload_to = 'appgallery/', default='DEFAULT VALUE')
     ima_name = models.CharField(max_length=33)
     ima_description = models.TextField()
-    # location = models.ForeignKey(location)
-    # category = models.ForeignKey(category)
+    location = models.ForeignKey(location)
+    category = models.ForeignKey(category)
     article_image = models.ImageField(upload_to = 'appgallery')
     post_date = models.DateTimeField(default=2)
 
