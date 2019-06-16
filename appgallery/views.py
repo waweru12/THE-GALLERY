@@ -18,7 +18,7 @@ def view_by_location(request,location_name):
     locations = Location.objects.all()
     categories = Category.objects.all()
     return render(request, 'index.html',{"images":images,"locations":locations,"categories":categories})  
-    
+
 def view_by_category(request,category_name):
 
     images = Image.get_with_category(category_name)
@@ -27,3 +27,26 @@ def view_by_category(request,category_name):
     categories = Category.objects.all()
 
     return render(request, 'index.html',{'images':images,"locations":locations,"categories":categories})
+
+
+def View_full_image(request,name):
+    image = Image.get_single_image(name)
+    #View function for the navbar
+    locations = Location.objects.all()
+    categories = Category.objects.all()
+
+    return render(request,'image.html',{'image':image,"locations":locations,"categories":categories})
+
+def search_category(request):
+    #View function for the navbar
+    locations = Location.objects.all()
+    categories = Category.objects.all()
+    if 'image' in request.GET and request.GET['image']:
+        search_term = request.GET.get("image")
+        images =  Image.search_by_category(search_term)
+        message = f"{search_term}"
+    
+        return render(request,'searched.html',{'images':images,"locations":locations,"categories":categories})
+    else:
+        message = "You haven't searched for any term"
+        return render(request,'searched.html',{'images':images,"locations":locations,"categories":categories})
