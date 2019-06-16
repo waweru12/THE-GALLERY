@@ -11,10 +11,19 @@ def welcome(request):
     image = Image.objects.all()
     return render(request, 'image.html',{'image':image})
 
- def view_by_location(request,location_name):
+def view_by_location(request,location_name):
       
     images = Image.get_with_location(location_name)
      #View function for the navbar
     locations = Location.objects.all()
     categories = Category.objects.all()
     return render(request, 'index.html',{"images":images,"locations":locations,"categories":categories})  
+    
+def view_by_category(request,category_name):
+
+    images = Image.get_with_category(category_name)
+    #View function for the navbar
+    locations = Location.objects.all()
+    categories = Category.objects.all()
+
+    return render(request, 'index.html',{'images':images,"locations":locations,"categories":categories})
