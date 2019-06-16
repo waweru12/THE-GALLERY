@@ -36,3 +36,29 @@ class CategoryTestClass(TestCase):
     def test_save_method(self):
         self.food.save_category()
 
+class ImageTestClass(TestCase):
+    def setUp(self):
+        #creating a new location and saving it 
+
+        self.nairobi = Location(location_name='Nairobi')
+        self.nairobi.save_location()
+
+        # creating a new category and saving it 
+
+        self.food = Category(category_name='Food')
+        self.food.save_category()
+
+        #creating a new imaage
+
+        self.new_image = Image(image_name ='eat',image_description='eatingafrica',image_category=self.food,image_location=self.nairobi)
+       
+
+        #Testing instance for the image 
+
+        def test_instance(self):
+            self.assertTrue(isinstance(self.new_image,Image))
+
+        # Testing the save method for the Image class
+        def test_save_method(self):
+            self.new_image.save_image()
+
