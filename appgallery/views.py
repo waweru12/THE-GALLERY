@@ -9,7 +9,10 @@ from .models import Image,Location,Category
 # Create your views here.
 def welcome(request):
     image = Image.objects.all()
-    return render(request, 'image.html',{'image':image})
+    locations = Location.objects.all()
+    categories = Category.objects.all()
+    return render(request, 'index.html',{"images":images,"locations":locations,"categories":categories})
+
 
 def view_by_location(request,location_name):
       
