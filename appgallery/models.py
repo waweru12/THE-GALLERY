@@ -4,12 +4,13 @@ import datetime as dt
 
 # Create your models here.
 class Image(models.Model):
+    image = models.ImageField(upload_to = 'photos/', default='DEFAULT VALUE')
     ima_name = models.CharField(max_length=33)
     ima_description = models.TextField()
     # location = models.ForeignKey(location)
     # category = models.ForeignKey(category)
     article_image = models.ImageField(upload_to = 'appgallery')
-    post_date = models.DateTimeField(auto_now_add=True)
+    post_date = models.DateTimeField(default=2)
 
 
     def __str__ (self):
