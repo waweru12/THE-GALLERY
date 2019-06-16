@@ -1,4 +1,6 @@
 from django.db import models
+import datetime as dt
+
 
 # Create your models here.
 class Image(models.Model):
@@ -7,6 +9,7 @@ class Image(models.Model):
     # location = models.ForeignKey(location)
     # category = models.ForeignKey(category)
     article_image = models.ImageField(upload_to = 'appgallery')
+    post_date = models.DateTimeField(auto_now_add=True)
 
 
     def __str__ (self):

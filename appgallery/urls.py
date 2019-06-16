@@ -5,6 +5,7 @@ from django.conf.urls.static import static
 
 urlpatterns=[
     url('^$',views.welcome,name = 'welcome'),
+   
 ]
 
 if settings.DEBUG:
