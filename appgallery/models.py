@@ -37,7 +37,7 @@ class Image(models.Model):
     ima_description = models.TextField()
     article_image = models.ImageField(upload_to = 'appgallery')
     Location=models.ForeignKey(Location,blank=True,default=4)
-  
+    Category=models.ForeignKey(Category)
    
 
 
