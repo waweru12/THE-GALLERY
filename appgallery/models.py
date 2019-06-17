@@ -3,12 +3,42 @@ import datetime as dt
 
 
 # Create your models here.
+
+
+
+class Location(models.Model):
+    location_name = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.location_name
+    
+    def save_location(self):
+        self.save()
+
+
+
+class Category(models.Model):
+
+    category_name = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.category_name
+    
+    def save_category(self):
+        self.save()
+
+    def delete_category(self):
+        self.delete()
+        
+
 class Image(models.Model):
     
     ima_name = models.CharField(max_length=33)
     ima_description = models.TextField()
     article_image = models.ImageField(upload_to = 'appgallery')
-    post_date = models.DateTimeField(default=2)
+    Location=models.ForeignKey(Location,blank=True,default=4)
+  
+   
 
 
     def __str__ (self):
@@ -63,31 +93,5 @@ class Image(models.Model):
     class Meta:
         ordering = ['ima_name']
 
-
-
-class Location(models.Model):
-    location_name = models.CharField(max_length=30)
-
-    def __str__(self):
-        return self.location_name
-    
-    def save_location(self):
-        self.save()
-
-
-
-class Category(models.Model):
-
-    category_name = models.CharField(max_length=30)
-
-    def __str__(self):
-        return self.category_name
-    
-    def save_category(self):
-        self.save()
-
-    def delete_category(self):
-        self.delete()
-        
 
 
