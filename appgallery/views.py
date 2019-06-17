@@ -6,6 +6,14 @@ from django.shortcuts import render,redirect
 from .models import Image,Location,Category
 
 
+def getimages(search_term):
+    values =  Image.objects.filter(category = search_term)
+    return values
+
+def get_with_location(self,search_term):
+    vals = Image.objects.filter(location = search_term)
+    return vals
+
 # Create your views here.
 def home(request):
     images = Image.objects.all()
@@ -15,7 +23,7 @@ def home(request):
 
 def view_by_location(request,location_name):
       
-    images = Image.get_with_location(location_name)
+    images = get_with_location(location_name)
      #View function for the navbar
     locations = Location.objects.all()
     categories = Category.objects.all()
@@ -23,7 +31,7 @@ def view_by_location(request,location_name):
 
 def view_by_category(request,category_name):
 
-    images = Image.get_with_category(category_name)
+    images = getimages(category_name)
     #View function for the navbar
     locations = Location.objects.all()
     categories = Category.objects.all()

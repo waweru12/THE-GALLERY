@@ -6,12 +6,12 @@
 
     </div>
     <div class="col-md-10">
-      <h1 class="text-center">Epic</h1><hr>
+      <h1 class="text-center">PHOTO GALLERY</h1><hr>
             {% for image_item in images %}
             <div class="col-sm-4 col-sm-4 col-sm-4 col-sm-4">
               <a href="/image/{{image_item.ima_name}}">
                 <div class="card">
-                    <img style="margin:5px;" src="{{image_item.image.url}}" class="img-responsive" alt="{{image_item.ima_name}}">
+                    <img style="margin:5ppx;" src="{{image_item.image.url}}" class="img-responsive" alt="{{image_item.ima_name}}">
                     <p>{{ image_item.image.url}}</p>
                    
                   </div> 
@@ -25,7 +25,5 @@
     </div>
     <div class="col-md-1"></div>
     </div>
-    <div class="footer">
-      <h4 class="text-center">Austin</h4>
-    </div>
+   
     {% endblock %}

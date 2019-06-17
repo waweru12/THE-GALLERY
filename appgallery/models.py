@@ -62,6 +62,10 @@ class Image(models.Model):
         images = self.objects.filter(category = search_term)
         return images
 
+    def get_with_location(self,search_term):
+        images = self.objects.filter(location = search_term)
+        return images
+
     def __str__ (self):
       return self.ima_name
 

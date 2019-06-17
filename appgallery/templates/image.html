@@ -6,21 +6,18 @@
   <div class="col-md-1"></div>
   <div class="col-md-10">
   {% for img in image %}
-  <h2 class="text-center">{{img.ima_name}}</h2><hr><br>
+  <h2 style="text-align:center; font-family: 'Cinzel', serif;font-size: 60px">{{img.ima_name}}</h2><hr><br>
   <div class="card2">
     <img style="margin:5px;" src="{{img.image.url}}" class="img-responsive" alt="{{img.ima_name}}">
     </div><br><br>
     <div class="card3">
-      <h5><strong>{{img.category}}</strong></h5>
-    <p >{{img.ima_description}} </p><br>
-    <p class="end">taken in {{img.location}}</p>
+      <h5 style="font-style: italic;font-size: 40px"><strong>{{img.category}}</strong></h5>
+    <p style="font-family: 'Oswald', sans-serif;font-size: 30px">{{img.ima_description}} </p><br>
+    <p class="end" style="font-family: 'Oswald', sans-serif;font-size: 30px">taken in {{img.location}}</p>
     </div>
     {% endfor %}
     </div>
     <div class="col-md-1"></div>
 </div>
-<div class="footer">
-    <h4 class="text-center">Austin</h4>
-    
-  </div>
+
 {% endblock %}
