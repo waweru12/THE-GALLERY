@@ -32,10 +32,9 @@ class Category(models.Model):
         
 
 class Image(models.Model):
-    
+    image = models.ImageField(upload_to = 'appgallery/', default="")
     ima_name = models.CharField(max_length=33)
     ima_description = models.TextField()
-    article_image = models.ImageField(upload_to = 'appgallery')
     Location=models.ForeignKey(Location,blank=True,default=4)
     Category=models.ForeignKey(Category)
    
@@ -56,11 +55,13 @@ class Image(models.Model):
     def get_image_by_id(cls,id):
         image_result = cls.objects.get(id=id)
         return image_result
+
     @classmethod
     def get_all_images(cls):
         all_images = Image.objects.all()
         for image in all_images:
             return image
+            
     @classmethod
     def search_by_category(cls,search_term):
         images = cls.objects.filter(Category__icontains=search_term)
