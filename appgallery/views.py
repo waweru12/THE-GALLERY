@@ -43,12 +43,17 @@ def search_category(request):
     #View function for the navbar
     locations = Location.objects.all()
     categories = Category.objects.all()
-    if 'image' in request.GET and request.GET['image']:
-        search_term = request.GET.get("image")
-        images =  Image.search_by_category(search_term)
+    search_term = request.GET.get("image")
+
+    def getimages(search_term):
+        values =  Image.objects.filter(category = search_term)
+        return values 
+
+    if search_term:
+        images = getimages(search_term)
         message = f"{search_term}"
-    
         return render(request,'searched.html',{'images':images,"locations":locations,"categories":categories})
     else:
+        images = getimages(search_term)
         message = "You haven't searched for any term"
-        return render(request,'searched.html',{'images':images,"locations":locations,"categories":categories})
+        return render(request,'searched.html',{"locations":locations,"categories":categories})

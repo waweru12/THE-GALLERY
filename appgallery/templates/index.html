@@ -11,7 +11,8 @@
             <div class="col-sm-4 col-sm-4 col-sm-4 col-sm-4">
               <a href="/image/{{image_item.ima_name}}">
                 <div class="card">
-                    <img style="margin:5px;" src="{{image_item.image.url}}" class="img-responsive" alt="Image">
+                    <img style="margin:5px;" src="{{image_item.image.url}}" class="img-responsive" alt="{{image_item.ima_name}}">
+                    <p>{{ image_item.image.url}}</p>
                    
                   </div> 
                   </a>

@@ -8,12 +8,12 @@
   {% for img in image %}
   <h2 class="text-center">{{img.ima_name}}</h2><hr><br>
   <div class="card2">
-    <img style="margin:5px;" src="{{img.image.url}}" class="img-responsive" alt="Image">
+    <img style="margin:5px;" src="{{img.image.url}}" class="img-responsive" alt="{{img.ima_name}}">
     </div><br><br>
     <div class="card3">
-      <h5><strong>{{img.Category}}</strong></h5>
+      <h5><strong>{{img.category}}</strong></h5>
     <p >{{img.ima_description}} </p><br>
-    <p class="end">taken in {{img.Location}}</p>
+    <p class="end">taken in {{img.location}}</p>
     </div>
     {% endfor %}
     </div>
