@@ -7,7 +7,7 @@ from .models import Image,Location,Category
 
 
 # Create your views here.
-def welcome(request):
+def home(request):
     images = Image.objects.all()
     locations = Location.objects.all()
     categories = Category.objects.all()
